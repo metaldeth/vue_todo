@@ -8,9 +8,12 @@
 </script>
 
 <template>
-  <ul>
+  <div v-if="todos.length <= 0">
+    Задач нет
+  </div>
+  <ul v-show="todos.length > 0">
     <li v-for="(todo, index) in todos" :key="todo.id">
-      {{ todo.id }} {{ index }} {{ todo.text }}
+      {{ todo.id }} {{ index }} {{ todo.text }} {{ todo.done }}
     </li>
   </ul>
 </template>
