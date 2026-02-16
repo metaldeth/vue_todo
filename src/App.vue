@@ -39,8 +39,16 @@
   <div v-if="todos.length <= 0">
     Задач нет
   </div>
-  <input v-model="newTodoText" />
-  <button @click="addTodo()" v-show='newTodoText.length > 0'>Добавить</button>
+  <input
+    v-model="newTodoText"
+    @keyup.enter="addTodo"
+  />
+  <button
+    @click="addTodo()"
+    v-show='newTodoText.length> 0'
+  >
+    Добавить
+  </button>
   <ul v-show="todos.length > 0">
     <li v-for="(todo, index) in todos" :key="todo.id">
       <button @click="toggleTodo(todo.id)">{{ todo.done }}</button>
