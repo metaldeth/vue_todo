@@ -1,28 +1,20 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref } from 'vue';
 
-  const count = ref(0)
-
-  function increment() {
-    count.value++
-  }
-
-  function decrement() {
-    count.value--
-  }
+  const todos = ref([
+    { id: 1, text: 'Изучить Vue 3', done: false },
+    { id: 1, text: 'Сделать Todo List', done: false },
+  ])
 </script>
 
 <template>
-  <div>
-    <h1>Vue Todo</h1>
-    <p>{{ count }}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-  </div>
+  <ul>
+    <li v-for="(todo, index) in todos" :key="todo.id">
+      {{ todo.id }} {{ index }} {{ todo.text }}
+    </li>
+  </ul>
 </template>
 
 <style scoped>
-h1 {
-  font-size: 1.5rem;
-}
+
 </style>
