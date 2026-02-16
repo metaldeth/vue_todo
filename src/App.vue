@@ -1,11 +1,23 @@
 <script setup lang="ts">
-  const message = 'Привет, мир!'
+import { ref } from 'vue'
+
+const count = ref(0)
+
+function increment() {
+  count.value++
+}
+
+function decrement() {
+  count.value--
+}
 </script>
 
 <template>
   <div>
     <h1>Vue Todo</h1>
-    <p>{{ message }}</p>
+    <p>{{ count }}</p>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
   </div>
 </template>
 
